@@ -5,7 +5,7 @@ A python implimentation of the wave function collapse algorithm
 """
 from collections import namedtuple
 
-def run(x: int, y: int, pixel_size: tuple, tiles: dict=None):
+def run(x: int, y: int, pixel_size: tuple):
 	"""
 	The main function for running the algorithm
 	x           : The amount of tiles in the x direction
@@ -13,6 +13,8 @@ def run(x: int, y: int, pixel_size: tuple, tiles: dict=None):
 	pixel_size  : tuple for the amount of pixels
 	tiles       : dict of the tiles
 	"""
+
+	global tiles
 
 	from random import shuffle
 
@@ -274,28 +276,8 @@ def get_all_adjacencies(tiles):
 		new_tiles[tile] = adjs(*sides, tiles[tile].image)
 	return new_tiles
 
-def forever_for():
-	"""
-	Fancy function that works in a for loop that will go forever
-	"""
-	i = 0
-	while True:
-		yield i
-		i += 1
-
 # Setting up Tiles
-
 adjs = namedtuple("Adjacencies", "top right bottom left image")
-
 tiles = get_tiles()
 tiles = get_all_rotations(tiles)
 # tiles = get_all_adjacencies(tiles)
-
-xy = 16                 # The amount of tiles in the x and y directions
-image_dimensions = 1024 # The dimensions of the image generated
-
-for i in forever_for():
-	if run(x = xy, y = xy, pixel_size = (1024, 1024), tiles=tiles): break
-	print(f" - No Solution in Attempt #{i}"); i+=1
-
-input("\n ~ FINISHED")
