@@ -6,7 +6,7 @@
 
 ## Dependancies:
  - This program only uses the python imaging library (PIL / Pillow)
-      `pip install Pillow`
+    - Install with: `pip install Pillow`
 
 ## Shoutouts
- - Code took reference from a (youtube video)[https://www.youtube.com/watch?v=rI_y2GAlQFM]
+ - Code took reference from a [youtube video](https://www.youtube.com/watch?v=rI_y2GAlQFM)
