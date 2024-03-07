@@ -11,11 +11,11 @@ def forever_for():
 		yield i
 		i += 1
 
-xy = 8                 # The amount of tiles in the x and y directions
-image_dimensions = 1024 # The dimensions of the image generated
+xy = 64                 # The amount of tiles in the x and y directions
+image_dimensions = 2048 # The dimensions of the image generated
 
 for i in forever_for():
 	if run(x = xy, y = xy, pixel_size = (image_dimensions, image_dimensions)): break
-	print(f" - No Solution in Attempt #{i}"); i+=1
+	print(f" - No Solution in Attempt #{i}", end="\r"); i+=1
 
 input("\n ~ FINISHED")
